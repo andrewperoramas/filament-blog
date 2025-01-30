@@ -100,9 +100,7 @@ class PostResource extends Resource
                             ->required(),
 
                         Forms\Components\DatePicker::make('published_at')
-                            ->label(__('filament-blog::filament-blog.published_date')),
-                        SpatieTagsInput::make('tags')
-                            ->label(__('filament-blog::filament-blog.tags')),
+                            ->label(__('filament-blog::filament-blog.published_date'))
                     ])
                     ->columns([
                         'sm' => 2,

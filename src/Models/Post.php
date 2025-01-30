@@ -86,4 +86,9 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class, 'blog_category_id');
     }
+
+    public function getPublishedAtFormattedAttribute(): ?string
+    {
+        return $this->published_at?->format('F j, Y');
+    }
 }
