@@ -92,7 +92,7 @@ class PostResource extends Resource
                                     ->required()
                                     ->rules(['lowercase'])
                                     ->unique(Author::class, 'email', function ($record) {
-                                        return strtolower($record);
+                                        return $record;
                                     })
                                     ->email(),
                             ])

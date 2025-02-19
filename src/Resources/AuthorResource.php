@@ -42,7 +42,7 @@ Forms\Components\TextInput::make('email')
     ->rules(['lowercase'])
     ->email()
             ->unique(Author::class, 'email', function ($record) {
-                return strtolower($record);
+                return $record;
             }),
              /* ->unique(modifyRuleUsing: function (Unique $rule) { */
         /* return $rule->where('is_active', 1); */
