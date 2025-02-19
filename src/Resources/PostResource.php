@@ -8,6 +8,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
+use Stephenjude\FilamentBlog\Models\Author;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -89,6 +90,10 @@ class PostResource extends Resource
                                     ->required(),
                                 Forms\Components\TextInput::make('email')
                                     ->required()
+                                    ->rules(['lowercase'])
+                                    ->unique(Author::class, 'email', function ($record) {
+                                        return strtolower($record);
+                                    })
                                     ->email(),
                             ])
                             /* ->searchable() */
