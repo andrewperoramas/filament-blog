@@ -40,7 +40,8 @@ Forms\Components\TextInput::make('email')
     ->label(__('filament-blog::filament-blog.email'))
     ->required()
     ->email()
-    ->rule('unique:blog_authors,email,NULL,id,email,LOWER(email)'),
+    ->unique(ignoreRecord: true),
+    /* ->rule('unique:blog_authors,email,NULL,id,email,LOWER(email)'), */
 
 
 
@@ -53,7 +54,7 @@ Forms\Components\TextInput::make('email')
                             ->columnSpan([
                                 'sm' => 2,
                             ]),
-                        /* self::getContentEditor('bio'), */
+                        self::getContentEditor('bio'),
                         Forms\Components\TextInput::make('github_handle')
                             ->label(__('filament-blog::filament-blog.github')),
                         Forms\Components\TextInput::make('twitter_handle')
