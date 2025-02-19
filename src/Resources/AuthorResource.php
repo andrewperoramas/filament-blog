@@ -40,10 +40,10 @@ Forms\Components\TextInput::make('email')
     ->label(__('filament-blog::filament-blog.email'))
     ->required()
     ->email()
-    ->unique(ignoreRecord: true),
-    /* ->rule('unique:blog_authors,email,NULL,id,email,LOWER(email)'), */
-
-
+                    ->afterStateUpdated(fn ($state, callable $set) => $set('email', strtolower($state)))
+                    ->unique(Author::class, 'email', function ($record) {
+                        return strtolower($record);
+                    }),
 
                         Forms\Components\FileUpload::make('photo')
                             ->label(__('filament-blog::filament-blog.photo'))
