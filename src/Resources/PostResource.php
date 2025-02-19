@@ -90,7 +90,7 @@ class PostResource extends Resource
                                     ->required()
                                     ->email(),
                             ])
-                            ->searchable()
+                            /* ->searchable() */
                             ->required(),
 
                         Forms\Components\Select::make('blog_category_id')
