@@ -36,11 +36,12 @@ class AuthorResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->label(__('filament-blog::filament-blog.name'))
                             ->required(),
-                        Forms\Components\TextInput::make('email')
-                            ->label(__('filament-blog::filament-blog.email'))
-                            ->required()
-                            ->email()
-                            ->unique(Author::class, 'email', fn ($record) => $record),
+Forms\Components\TextInput::make('email')
+    ->label(__('filament-blog::filament-blog.email'))
+    ->required()
+    ->email()
+    ->rule('unique:authors,email,NULL,id,email,LOWER(email)'),
+
                         Forms\Components\FileUpload::make('photo')
                             ->label(__('filament-blog::filament-blog.photo'))
                             ->image()
