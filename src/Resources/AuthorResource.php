@@ -39,11 +39,16 @@ class AuthorResource extends Resource
 Forms\Components\TextInput::make('email')
     ->label(__('filament-blog::filament-blog.email'))
     ->required()
+    ->rules(['lowercase'])
     ->email()
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('email', strtolower($state)))
-                    ->unique(Author::class, 'email', function ($record) {
-                        return strtolower($record);
-                    }),
+            ->unique(Author::class, 'email', function ($record) {
+                return strtolower($record);
+            }),
+             /* ->unique(modifyRuleUsing: function (Unique $rule) { */
+        /* return $rule->where('is_active', 1); */
+    /* }) */
+                    /* ->afterStateUpdated(fn ($state, callable $set) => $set('email', strtolower($state))) */
+
 
                         Forms\Components\FileUpload::make('photo')
                             ->label(__('filament-blog::filament-blog.photo'))
