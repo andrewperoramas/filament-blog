@@ -70,7 +70,7 @@ class PostResource extends Resource
                         Forms\Components\FileUpload::make('banner')
                             ->label(__('filament-blog::filament-blog.banner'))
                             ->image()
-                            ->maxSize(config('filament-blog.banner.maxSize', 5120))
+                            ->maxSize(config('filament-blog.banner.maxSize', 21120))
                             ->imageCropAspectRatio(config('filament-blog.banner.cropAspectRatio', '16:9'))
                             ->disk(config('filament-blog.banner.disk', 'public'))
                             ->directory(config('filament-blog.banner.directory', 'blog'))
