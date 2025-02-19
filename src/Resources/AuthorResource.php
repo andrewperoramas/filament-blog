@@ -40,7 +40,9 @@ Forms\Components\TextInput::make('email')
     ->label(__('filament-blog::filament-blog.email'))
     ->required()
     ->email()
-    ->rule('unique:authors,email,NULL,id,email,LOWER(email)'),
+    ->rule('unique:blog_authors,email,NULL,id,email,LOWER(email)')
+
+
 
                         Forms\Components\FileUpload::make('photo')
                             ->label(__('filament-blog::filament-blog.photo'))
