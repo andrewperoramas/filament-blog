@@ -53,7 +53,7 @@ Forms\Components\TextInput::make('email')
                             ->columnSpan([
                                 'sm' => 2,
                             ]),
-                        self::getContentEditor('bio'),
+                        /* self::getContentEditor('bio'), */
                         Forms\Components\TextInput::make('github_handle')
                             ->label(__('filament-blog::filament-blog.github')),
                         Forms\Components\TextInput::make('twitter_handle')
